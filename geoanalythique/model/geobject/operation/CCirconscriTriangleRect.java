@@ -3,6 +3,7 @@ package geoanalythique.model.geobject.operation;
 import geoanalythique.model.Cercle;
 import geoanalythique.model.Point;
 import geoanalythique.model.TriangleRectangle;
+import geoanalythique.util.Operation;
 
 /**
  * La classe CCirconscriTriangleRect implémente l'opération de calcul du cercle circonscrit d'un triangle rectangle.

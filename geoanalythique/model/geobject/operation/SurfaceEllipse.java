@@ -1,6 +1,7 @@
 package geoanalythique.model.geobject.operation;
 
 import geoanalythique.model.Ellipse;
+import geoanalythique.util.Operation;
 
 /**
  * Classe SurfaceEllipse qui implémente l'interface Operation.

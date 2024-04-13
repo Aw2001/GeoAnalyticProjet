@@ -3,6 +3,7 @@ package geoanalythique.model.geobject.operation;
 import geoanalythique.model.Point;
 import geoanalythique.model.Segment;
 import geoanalythique.model.TriangleEquilateral;
+import geoanalythique.util.Operation;
 
 /**
  * La classe MedianeTrianglEquilateral implémente l'opération de calcul des médianes d'un triangle équilatéral.

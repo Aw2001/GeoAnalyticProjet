@@ -1,6 +1,7 @@
 package geoanalythique.model.geobject.operation;
 
 import geoanalythique.model.TriangleIsocele;
+import geoanalythique.util.Operation;
 
 /**
  * Classe SurfaceTriangleIsocele qui implémente l'interface Operation.

@@ -1,6 +1,7 @@
 package geoanalythique.model.geobject.operation;
 
 import geoanalythique.model.TriangleEquilateral;
+import geoanalythique.util.Operation;
 
 /**
  * Classe PerimetreTriangleEquilateral qui implémente l'interface Operation.
