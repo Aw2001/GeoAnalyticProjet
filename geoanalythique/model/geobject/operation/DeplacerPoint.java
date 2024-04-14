@@ -1,6 +1,7 @@
 package geoanalythique.model.geobject.operation;
 
 import geoanalythique.model.Point;
+import geoanalythique.util.Operation;
 
 /**
  * Cette classe représente une opération pour déplacer un point dans un plan cartésien.

@@ -1,4 +1,4 @@
-package geoanalythique.model.geobject.operation;
+package geoanalythique.util;
 
 /**
  * L'interface Operation définit les opérations réalisables sur les objets géométriques.
