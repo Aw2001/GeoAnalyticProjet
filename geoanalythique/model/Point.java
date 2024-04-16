@@ -1,5 +1,9 @@
 package geoanalythique.model;
 
+import geoanalythique.graphique.Graphique;
+import geoanalythique.util.Dessinateur;
+import geoanalythique.util.GeoObjectVisitor;
+
 /**
  * La classe Point représente un point dans un espace bidimensionnel.
  * Elle hérite de la classe GeoObject.
@@ -49,5 +53,9 @@ public class Point extends GeoObject {
      */
     public void setY(double ordonnee) {
         this.y = ordonnee;
+    }
+
+    public Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorPoint(this);
     }
 }

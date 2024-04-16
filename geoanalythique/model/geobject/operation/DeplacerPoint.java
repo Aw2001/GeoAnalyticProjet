@@ -8,8 +8,8 @@ import geoanalythique.util.Operation;
  */
 public class DeplacerPoint implements Operation {
     private Point point;
-    private int new_x;
-    private int new_y;
+    private double new_x;
+    private double new_y;
 
     /**
      * Constructeur de la classe DeplacerPoint.
@@ -17,7 +17,7 @@ public class DeplacerPoint implements Operation {
      * @param new_x La nouvelle coordonnée x du point.
      * @param new_y La nouvelle coordonnée y du point.
      */
-    public DeplacerPoint(Point point, int new_x, int new_y) {
+    public DeplacerPoint(Point point, double new_x, double new_y) {
         this.point = point;
         this.new_x = new_x;
         this.new_y = new_y;
@@ -51,9 +51,9 @@ public class DeplacerPoint implements Operation {
         if (num == 0) {
             this.point = (Point) o;
         } else if (num == 1) {
-            this.new_x = (int) o;
+            this.new_x = (double) o;
         } else if (num == 2) {
-            this.new_y = (int) o;
+            this.new_y = (double) o;
         }
     }
 
@@ -67,7 +67,7 @@ public class DeplacerPoint implements Operation {
         if (num == 0) {
             return Point.class; // Le premier argument est de type Point
         } else {
-            return Integer.class; // Les deux autres arguments sont de type int
+            return Double.class; // Les deux autres arguments sont de type int
         }
     }
 
