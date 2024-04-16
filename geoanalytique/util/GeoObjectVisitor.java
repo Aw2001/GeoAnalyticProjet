@@ -6,15 +6,16 @@ import geoanalytique.model.Droite;
 import geoanalytique.model.Ellipse;
 import geoanalytique.model.Point;
 import geoanalytique.model.Segment;
+import geoanalytique.model.Triangle;
 import geoanalytique.model.TriangleEquilateral;
 import geoanalytique.model.TriangleIsocele;
 import geoanalytique.model.TriangleRectangle;
 
 /**
  * L'interface GeoObjectVisitor est l'interface de base pour les visiteurs du modèle.
- * @param <T> Le type de l'objet graphique à visiter.
+ * @param <Graphique> Le type de l'objet graphique à visiter.
  */
-public interface GeoObjectVisitor<T> {
+public interface GeoObjectVisitor<Graphique> {
     
      /**
      * Visite un point.
@@ -22,7 +23,7 @@ public interface GeoObjectVisitor<T> {
      * @param point Le point à visiter.
      * @return L'objet graphique correspondant au point visité.
      */
-    T visitorPoint(Point point);
+    Graphique visitorPoint(Point point);
 
      /**
      * Visite un segment.
@@ -30,7 +31,7 @@ public interface GeoObjectVisitor<T> {
      * @param segment Le segment à visiter.
      * @return L'objet graphique correspondant au segment visité.
      */
-    T visitorSegment(Segment segment);
+    Graphique visitorSegment(Segment segment);
 
     /**
      * Visite une droite.
@@ -38,7 +39,7 @@ public interface GeoObjectVisitor<T> {
      * @param droite La droite à visiter.
      * @return L'objet graphique correspondant à la droite visitée.
      */
-    T visitorDroite(Droite droite);
+    Graphique visitorDroite(Droite droite);
 
     /**
      * Visite un cercle.
@@ -46,7 +47,7 @@ public interface GeoObjectVisitor<T> {
      * @param cercle Le cercle à visiter.
      * @return L'objet graphique correspondant au cercle visité.
      */
-    T visitorCercle(Cercle cercle);
+    Graphique visitorCercle(Cercle cercle);
 
      /**
      * Visite un carré.
@@ -54,7 +55,7 @@ public interface GeoObjectVisitor<T> {
      * @param carre Le carré à visiter.
      * @return L'objet graphique correspondant au carré visité.
      */
-    T visitorCarre(Carre carre);
+    Graphique visitorCarre(Carre carre);
 
      /**
      * Visite une ellipse.
@@ -62,7 +63,7 @@ public interface GeoObjectVisitor<T> {
      * @param ellipse L'ellipse à visiter.
      * @return L'objet graphique correspondant à l'ellipse visitée.
      */
-    T visitorEllipse(Ellipse ellipse);
+    Graphique visitorEllipse(Ellipse ellipse);
 
      /**
      * Visite un triangle équilatéral.
@@ -70,7 +71,16 @@ public interface GeoObjectVisitor<T> {
      * @param triangleEquilateral Le triangle équilatéral à visiter.
      * @return L'objet graphique correspondant au triangle équilatéral visité.
      */
-    T visitorTriangleEquilateral(TriangleEquilateral triangleEquilateral);
+    Graphique visitorTriangleEquilateral(TriangleEquilateral triangleEquilateral);
+
+    /**
+     * Visite un triangle.
+     *
+     * @param triangle Le triangle à visiter.
+     * @return L'objet graphique correspondant au triangle visité.
+     */
+    Graphique visitorTriangle(Triangle triangle);
+
 
     /**
      * Visite un triangle isocèle.
@@ -78,7 +88,7 @@ public interface GeoObjectVisitor<T> {
      * @param triangleIsocele Le triangle isocèle à visiter.
      * @return L'objet graphique correspondant au triangle isocèle visité.
      */
-    T visitorTriangleIsocele(TriangleIsocele triangleIsocele);
+    Graphique visitorTriangleIsocele(TriangleIsocele triangleIsocele);
 
      /**
      * Visite un triangle rectangle.
@@ -86,6 +96,6 @@ public interface GeoObjectVisitor<T> {
      * @param triangleRectangle Le triangle rectangle à visiter.
      * @return L'objet graphique correspondant au triangle rectangle visité.
      */
-    T visitorTriangleRectangle(TriangleRectangle triangleRectangle);    
+    Graphique visitorTriangleRectangle(TriangleRectangle triangleRectangle);    
 
 }

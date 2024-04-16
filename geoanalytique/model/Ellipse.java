@@ -1,5 +1,8 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * La classe Ellipse représente une ellipse dans un espace bidimensionnel.
  * Elle hérite de la classe Surface.
@@ -87,5 +90,19 @@ public class Ellipse extends Surface {
      */
     public void setInclinaison (double inclinaison) {
         this.inclinaison = inclinaison;
+    }
+
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur l'ellipse.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur l'ellipse.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+     public <Graphique>Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorEllipse(this);
     }
 }

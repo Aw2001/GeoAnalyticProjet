@@ -65,9 +65,9 @@ public class DeplacerPoint implements Operation {
     @Override
     public Object getClassArgument(int num) {
         if (num == 0) {
-            return Point.class; // Le premier argument est de type Point
+            return this.point; // Le premier argument est de type Point
         } else {
-            return Double.class; // Les deux autres arguments sont de type int
+            return this.new_x; // Les deux autres arguments sont de type int
         }
     }
 

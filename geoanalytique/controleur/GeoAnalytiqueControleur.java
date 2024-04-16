@@ -1,24 +1,37 @@
 package geoanalytique.controleur;
 
 import java.awt.Graphics;
+import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import geoanalytique.graphique.Graphique;
+import geoanalytique.model.GeoObject;
 import geoanalytique.model.Point;
 import geoanalytique.util.Dessinateur;
+import geoanalytique.util.GeoObjectVisitor;
 import geoanalytique.view.GeoAnalytiqueView;
 
 import java.awt.Color;
 
+/**
+ * La classe GeoAnalytiqueControleur gère les opérations de dessin et les interactions entre la vue et les objets géométriques.
+ */
 public class GeoAnalytiqueControleur {
 
     private static final int TICK_SIZE = 5; // Taille des marques de graduation
     private static final int TICK_LABEL_MARGIN = 5; // Marge pour les labels de graduation
     private static final int TICK_SPACING = 30; // Espacement entre les graduations
-    private static final int AXIS_MARGIN = 50;
+    private static final int AXIS_MARGIN = 50; // Marge entre l'axe des coordonnées et le bord du dessin
+    private List<Graphique> graphiques;
 
-
-
-    public GeoAnalytiqueControleur(){};
+    /**
+     * Constructeur de la classe GeoAnalytiqueControleur.
+     * @param graphiques La liste des graphiques à gérer.
+     */
+    public GeoAnalytiqueControleur(List<Graphique> graphiques){
+        this.graphiques = graphiques;
+    };
 
     /**
      * Méthode pour recalculer et dessiner les axes et les graduations dans une zone de dessin.
@@ -94,6 +107,15 @@ public class GeoAnalytiqueControleur {
             graduationValue--;
         }
     }
-
+    /**
+     * Ajoute un objet géométrique à la liste des graphiques et effectue les opérations associées à cet objet.
+     * @param object L'objet géométrique à ajouter.
+     */
+    public void addObject (GeoObject object) {
+        Dessinateur dessinateur = new Dessinateur();
+        Graphique graphique = object.accept(dessinateur);
+        graphiques.add(graphique);
+       
+    }
 
 }

@@ -1,5 +1,8 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * Représente un triangle rectangle, un type de triangle où un angle est de 90 degrés.
  * Hérite de la classe Triangle.
@@ -58,5 +61,19 @@ public class TriangleRectangle extends Triangle {
      */
     public void setHauteur (double hauteur) {
         this.hauteur = hauteur;
+    }
+
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le triangle rectangle.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le triangle rectangle.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+    public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorTriangleRectangle(this);
     }
 }

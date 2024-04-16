@@ -10,12 +10,11 @@ import geoanalytique.model.ViewPort;
  */
 public class GCoordonnee extends Graphique {
     
-    private Point point; /** point à dessiner
+    private Point point; //point à dessiner
 
     /**
      * Constructeur de la classe GCoordonnée.
-     * @param x La coordonnée x.
-     * @param y La coordonnée y.
+     * @param point Le point à représenter
      */
     public GCoordonnee(Point point) {
         this.point = point;
@@ -28,11 +27,14 @@ public class GCoordonnee extends Graphique {
     @Override
     public void paint(Graphics g) {
         //Convertir les coordonnées réelles en coordonnées d'affichage
-        int x = new ViewPort(0, 0, 20, 20, 800, 600).convertX(point.getX());
-        int y = new ViewPort(0, 0, 20, 20, 800, 600).convertY(point.getY());
+        ViewPort  viewport1 = new ViewPort(point.getX(), point.getY());
+        ViewPort  viewport2 = new ViewPort(point.getX(), point.getY());
+
+        int x = viewport1.convertX();
+        int y = viewport2.convertY();
 
         // Dessiner la coordonnée en utilisant l'objet Graphics
-        g.fillOval(x, y, 5, 5); // Dessiner un petit cercle pour représenter la coordonnée
+        g.fillOval(x, y, 10, 10); // Dessiner un petit cercle pour représenter la coordonnée
     }
 
 

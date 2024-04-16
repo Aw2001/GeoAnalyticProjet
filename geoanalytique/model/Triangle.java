@@ -1,5 +1,8 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * La classe Triangle représente un triangle dans un espace bidimensionnel.
  * Elle hérite de la classe Polygone.
@@ -69,4 +72,19 @@ public class Triangle extends Polygone {
     public void setSommet3 (Point sommet3) {
         this.sommet3 = sommet3;
     }
+
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le triangle.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le triangle.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+    public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return  visitor.visitorTriangle(this);
+    }
+    
 }

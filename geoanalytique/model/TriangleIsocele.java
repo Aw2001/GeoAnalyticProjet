@@ -1,5 +1,8 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * Représente un triangle isocèle, un type de triangle où deux côtés sont de longueur égale.
  * Hérite de la classe Triangle.
@@ -12,7 +15,7 @@ public class TriangleIsocele extends Triangle {
     /**
      * Construit un objet TriangleIsocele avec le sommet donné, la base et la hauteur.
      * 
-     * @param sommet1 Le sommet du triangle.
+     * @param sommet1 Un sommet du triangle.
      * @param base La longueur de la base du triangle.
      * @param hauteur La hauteur du triangle.
      */
@@ -58,5 +61,19 @@ public class TriangleIsocele extends Triangle {
      */
     public void setHauteur (double hauteur) {
         this.hauteur = hauteur;
+    }
+
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le triangle isocèle.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le triangle isocèle.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+    public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorTriangleIsocele(this);
     }
 }

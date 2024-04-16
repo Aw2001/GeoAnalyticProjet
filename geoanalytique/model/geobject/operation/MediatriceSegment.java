@@ -27,31 +27,37 @@ public class MediatriceSegment implements Operation{
 
     /**
      * Renvoie le nombre d'arguments requis par l'opération.
-     * @return Le nombre d'arguments requis (dans ce cas, aucun, car le segment est fourni dans le constructeur).
+     * @return Le nombre d'arguments requis .
      */
     @Override
     public int getArity() {
-        return 0;
+        return 1;
     }
 
     /**
-     * Définit un argument pour l'opération (dans ce cas, cette méthode n'est pas utilisée car le segment est fourni dans le constructeur).
+     * Définit un argument pour l'opération.
      * @param num Le numéro de l'argument.
-     * @param o L'objet à définir comme argument (dans ce cas, non utilisé).
+     * @param o L'objet à définir comme argument.
      */
     @Override
     public void setArgument(int num, Object o) {
-        // Cette méthode n'est pas utilisée car le segment est fourni dans le constructeur
+        if(num == 0) {
+            this.segment = (Segment) o;
+        }
     }
 
     /**
-     * Renvoie la référence de l'argument correspondant à un certain numéro (dans ce cas, cette méthode n'est pas utilisée car le segment est fourni dans le constructeur).
+     * Renvoie la référence de l'argument correspondant à un certain numéro 
      * @param num Le numéro de l'argument.
-     * @return La référence de l'argument correspondant (dans ce cas, non utilisée).
+     * @return La référence de l'argument correspondant.
      */
     @Override
     public Object getClassArgument(int num) {
-        return null; // Cette méthode n'est pas utilisée car le segment est fourni dans le constructeur
+        if(num == 0) {
+            return this.segment;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -86,13 +92,17 @@ public class MediatriceSegment implements Operation{
     }
 
     /**
-     * Renvoie la description de l'argument correspondant à un certain numéro (dans ce cas, cette méthode n'est pas utilisée car le segment est fourni dans le constructeur).
+     * Renvoie la description de l'argument correspondant à un certain numéro 
      * @param num Le numéro de l'argument.
-     * @return La description de l'argument (dans ce cas, non utilisée).
+     * @return La description de l'argument.
      */
     @Override
     public String getDescriptionArgument(int num) {
-        return null; // Cette méthode n'est pas utilisée car le segment est fourni dans le constructeur
+        if (num == 0) {
+            return "C'est un segment";
+        } else {
+            return null;
+        }
     }
    
 }

@@ -1,16 +1,19 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * La classe Carre représente un carre dans un espace bidimensionnel.
  * Elle hérite de la classe Polygone.
  */
 public class Carre extends Polygone {
     
-    private Point sommet1;
-    private Point sommet2;
-    private Point sommet3;
-    private Point sommet4;
-    private double longueurCote;
+    private Point sommet1; // Le premier sommet du carré
+    private Point sommet2; // Le deuxième sommet du carré
+    private Point sommet3; // Le troisième sommet du carré
+    private Point sommet4; // Le quatrième sommet du carré
+    private double longueurCote; // La longueur du côté du carré
 
     /**
      * Constructeur pour créer un carré à partir d'un sommet et de la longueur d'un côté.
@@ -79,5 +82,19 @@ public class Carre extends Polygone {
      */
     public void setLongueurCote(double longueurCote) {
         this.longueurCote = longueurCote;
+    }
+
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le carré.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le carré.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+    */
+    @Override
+    public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorCarre(this);
     }
 }

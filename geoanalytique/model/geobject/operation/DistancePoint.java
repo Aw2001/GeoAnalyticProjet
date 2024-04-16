@@ -31,21 +31,25 @@ public class DistancePoint implements Operation {
 
     /**
      * Renvoie le nombre d'arguments requis par l'opération.
-     * @return Le nombre d'arguments requis (dans ce cas, aucun, car les points sont fournis dans le constructeur).
+     * @return Le nombre d'arguments requis.
      */
     @Override
     public int getArity() {
-        return 0;
+        return 2;
     }
 
     /**
-     * Définit un argument pour l'opération (dans ce cas, cette méthode n'est pas utilisée car les points sont fournis dans le constructeur).
+     * Définit un argument pour l'opération.
      * @param num Le numéro de l'argument.
-     * @param o L'objet à définir comme argument (dans ce cas, non utilisé).
+     * @param o L'objet à définir comme argument .
      */
     @Override
     public void setArgument(int num, Object o) {
-        // Cette méthode n'est pas utilisée car les points sont fournis dans le constructeur
+        if(num == 0) {
+            this.point1 = (Point) o;
+        } else {
+            this.point2 = (Point) o;
+        }
     }
 
     /**
@@ -55,7 +59,13 @@ public class DistancePoint implements Operation {
      */
     @Override
     public Object getClassArgument(int num) {
-        return null; // Cette méthode n'est pas utilisée car les points sont fournis dans le constructeur
+        if(num == 0) {
+            return this.point1;
+        } else if(num == 1) {
+            return this.point2;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -68,13 +78,18 @@ public class DistancePoint implements Operation {
     }
 
     /**
-     * Renvoie la description de l'argument correspondant à un certain numéro (dans ce cas, cette méthode n'est pas utilisée car les points sont fournis dans le constructeur).
-     * @param num Le numéro de l'argument.
-     * @return La description de l'argument (dans ce cas, non utilisée).
+     * Renvoie la description de l'argument correspondant à un certain numéro
+     * @return La description de l'argument .
      */
     @Override
     public String getDescriptionArgument(int num) {
-        return null; // Cette méthode n'est pas utilisée car les points sont fournis dans le constructeur
+        if(num == 0) {
+            return "premier point";
+        } else if (num == 1) {
+            return "second point";
+        } else {
+            return null;
+        }
     }
 }
 

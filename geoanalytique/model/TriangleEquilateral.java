@@ -1,5 +1,8 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * Représente un triangle équilatéral, un type de triangle où tous les côtés sont de longueur égale.
  * Hérite de la classe Triangle.
@@ -7,11 +10,11 @@ package geoanalytique.model;
 
 public class TriangleEquilateral extends Triangle {
 
-    private double longueurCote; 
+    private double longueurCote; //longueur du côté
 
     /**
      * Construit un objet TriangleEquilateral avec le sommet donné et la longueur de côté.
-     * @param sommet1 Le sommet du triangle.
+     * @param sommet1 Un sommet du triangle.
      * @param longueurCote La longueur de chaque côté du triangle.
      */
     public TriangleEquilateral (Point sommet1, double longueurCote) {
@@ -37,4 +40,17 @@ public class TriangleEquilateral extends Triangle {
         this.longueurCote = longueurCote;
     }
     
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le triangle équilatéral.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le triangle équilatéral.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+    public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorTriangleEquilateral(this);
+    }
 }

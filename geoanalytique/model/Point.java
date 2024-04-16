@@ -1,7 +1,6 @@
 package geoanalytique.model;
 
 import geoanalytique.graphique.Graphique;
-import geoanalytique.util.Dessinateur;
 import geoanalytique.util.GeoObjectVisitor;
 
 /**
@@ -55,7 +54,17 @@ public class Point extends GeoObject {
         this.y = ordonnee;
     }
 
-    public Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le point.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le point.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+    public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
         return visitor.visitorPoint(this);
     }
 }

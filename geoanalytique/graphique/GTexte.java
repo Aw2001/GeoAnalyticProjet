@@ -30,8 +30,8 @@ public class GTexte extends Graphique {
      */
     @Override
     public void paint(Graphics g) {
-        int x = new ViewPort(0, 0, 20, 20, 800, 600).convertX(point.getX());
-        int y = new ViewPort(0, 0, 20, 20, 800, 600).convertY(point.getY());
+        int x = new ViewPort(point.getX(), point.getY()).convertX();
+        int y = new ViewPort(point.getX(), point.getY()).convertY();
         g.drawString(texte, x, y); // Dessiner le texte à la position spécifiée
     }
 }

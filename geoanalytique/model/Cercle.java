@@ -1,5 +1,8 @@
 package geoanalytique.model;
 
+import geoanalytique.graphique.Graphique;
+import geoanalytique.util.GeoObjectVisitor;
+
 /**
  * La classe Cercle représente un cercle dans un espace bidimensionnel.
  * Elle hérite de la classe Ellipse.
@@ -13,7 +16,7 @@ public class Cercle extends Ellipse {
      * @param rayon Le rayon du cercle.
      */
     public Cercle (Point centre, double rayon) {
-        super(centre, rayon, rayon, 0); // Appel du constructeur de la classe Ellipse en fixant l'inclinaison à 0
+        super(centre, rayon, rayon, 0); // Un cercle est une ellipse avec les mêmes longueurs de demi-axes et une inclinaison nulle
         this.rayon = rayon;
     }
 
@@ -31,5 +34,19 @@ public class Cercle extends Ellipse {
      */
     public void setRayon(double rayon) {
         this.rayon = rayon;
+    }
+
+    /**
+     * Méthode accept() pour permettre la visite par un visiteur.
+     * Cette méthode est implémentée pour accepter un visiteur spécifique
+     * et lui permettre d'effectuer des opérations sur le cercle.
+     * 
+     * @param <Graphique> Le type de résultat retourné par le visiteur.
+     * @param visitor Le visiteur qui va effectuer des opérations sur le cercle.
+     * @return Le résultat de l'opération effectuée par le visiteur.
+     */
+    @Override
+     public <Graphique> Graphique accept (GeoObjectVisitor<Graphique> visitor) {
+        return visitor.visitorCercle(this);
     }
 }

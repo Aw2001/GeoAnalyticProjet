@@ -28,31 +28,37 @@ public class PerimetreCarre implements Operation {
 
     /**
      * Renvoie le nombre d'arguments requis par l'opération.
-     * @return Le nombre d'arguments requis (dans ce cas, aucun, car le carré est fourni dans le constructeur).
+     * @return Le nombre d'arguments requis.
      */
     @Override
     public int getArity() {
-        return 0;
+        return 1;
     }
 
     /**
-     * Définit un argument pour l'opération (dans ce cas, cette méthode n'est pas utilisée car le carré est fourni dans le constructeur).
+     * Définit un argument pour l'opération.
      * @param num Le numéro de l'argument.
-     * @param o L'objet à définir comme argument (dans ce cas, non utilisé).
+     * @param o L'objet à définir comme argument.
      */
     @Override
     public void setArgument(int num, Object o) {
-        // Cette méthode n'est pas utilisée car le carré est fourni dans le constructeur
+        if(num == 0) {
+            this.carre = (Carre)o;
+        }
     }
 
     /**
-     * Renvoie la référence de l'argument correspondant à un certain numéro (dans ce cas, cette méthode n'est pas utilisée car le carré est fourni dans le constructeur).
+     * Renvoie la référence de l'argument correspondant à un certain numéro.
      * @param num Le numéro de l'argument.
-     * @return La référence de l'argument correspondant (dans ce cas, non utilisée).
+     * @return La référence de l'argument correspondant.
      */
     @Override
     public Object getClassArgument(int num) {
-        return null; // Cette méthode n'est pas utilisée car le carré est fourni dans le constructeur
+        if(num == 0) {
+            return this.carre;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -71,7 +77,11 @@ public class PerimetreCarre implements Operation {
      */
     @Override
     public String getDescriptionArgument(int num) {
-        return null; // Cette méthode n'est pas utilisée car le carré est fourni dans le constructeur
+        if(num == 0) {
+            return "C'est un carre";
+        } else {
+            return null;
+        }
     }
 }
 
