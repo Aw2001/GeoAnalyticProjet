@@ -16,7 +16,7 @@ public class GeoAnalytiqueControleur {
     private static final int TICK_SPACING = 30; // Espacement entre les graduations
     private static final int AXIS_MARGIN = 50;
 
-    GeoAnalytiqueView graphiques = new GeoAnalytiqueView();
+
 
     public GeoAnalytiqueControleur(){};
 
@@ -96,14 +96,4 @@ public class GeoAnalytiqueControleur {
     }
 
 
-    public void addObjet(Point objet) {
-        // Créer une instance de la classe Dessinateur
-        Dessinateur dessinateur = new Dessinateur();
-
-        // Utiliser le visiteur pour convertir l'objet en un objet graphique
-        Graphique g = objet.accept(dessinateur);
-
-        //ajouter graphique
-        graphiques.ajouterGraphique(g);
-    }
 }
