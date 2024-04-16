@@ -1,34 +1,21 @@
 package geoanalytique.view;
 
 import javax.swing.*;
-import geoanalytique.graphique.Graphique;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+import geoanalytique.controleur.GeoAnalytiqueControleur;
 
 public class GeoAnalytiqueView extends JPanel {
-    private List<Graphique> graphiques;
+    private GeoAnalytiqueControleur controleur;
 
     public GeoAnalytiqueView() {
-        graphiques = new ArrayList<>();
-    }
-
-    public void ajouterGraphique(Graphique graphique) {
-        graphiques.add(graphique);
-        repaint(); // Actualiser l'affichage
-    }
-
-    public void supprimerGraphique(Graphique graphique) {
-        graphiques.remove(graphique);
-        repaint(); // Actualiser l'affichage
+        this.controleur = new GeoAnalytiqueControleur();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Dessiner les graphiques
-        for (Graphique graphique : graphiques) {
-            graphique.paint(g);
-        }
+        // Appeler la méthode recalculPoints du contrôleur pour dessiner les axes
+        controleur.recalculPoints(getWidth(), getHeight(), g);
     }
+
 }

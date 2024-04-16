@@ -1,16 +1,14 @@
 package geoanalytique.gui;
 
 import javax.swing.*;
-
 import geoanalytique.view.GeoAnalytiqueView;
-
 import java.awt.*;
 
 public class GeoAnalytiqueGUI extends JFrame {
     private GeoAnalytiqueView geoView;
 
     public GeoAnalytiqueGUI() {
-        setTitle("Application de dessins géométriques");
+        setTitle("Application de dessin géométrique");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
 

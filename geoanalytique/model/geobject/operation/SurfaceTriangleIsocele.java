@@ -51,6 +51,7 @@ public class SurfaceTriangleIsocele implements Operation {
     }
 
     /**
+     * Renvoie la référence de l'argument correspondant à un certain numéro.
      * @param num Le numéro de l'argument.
      * @return L'argument à la position spécifiée.
      */
